@@ -1,15 +1,18 @@
 import grapesjs from "grapesjs/dist/grapes.js";
 import basics from "grapesjs-blocks-basic";
-import clickableButton from "./plugins/plugin";
-import functionalButton from "./plugins/newBlock";
+import newsletters from "grapesjs-preset-newsletter";
+import webpages from "grapesjs-preset-webpage";
+import myPlugins from "./plugins/plugin";
 import "./styles.css";
 
 const editor = grapesjs.init({
   container: "#gjs",
-  fromElement: 1,
+  fromElement: true,
   height: "100%",
-  storageManager: { type: 0 },
-  plugins: [functionalButton, clickableButton],
+  showOffsets: 1,
+  noticeOnUnload: 0,
+  storageManager: { autoload: 0 },
+  plugins: [webpages, myPlugins],
   commands: {
     defaults: [],
   },
@@ -19,7 +22,12 @@ editor.setComponents(`
   <html>
   <head>
   </head>
-  <body>
-    <h1>Welcome</h1>
-  </body>
+    <body>
+      <section>
+        <div>
+          <h1>Welcome To Customer Management</h1>
+          <p>Design Your Own Web Page</p>
+        </div>
+      </section>
+    </body>
 `);
